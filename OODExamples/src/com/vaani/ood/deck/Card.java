@@ -10,7 +10,6 @@ public class Card implements Comparable<Card>{
 	    this.rank = rank;
 	}
 	
-	
 
 	@Override
 	public int compareTo(Card card2) {

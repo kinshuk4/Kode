@@ -2,11 +2,13 @@ package com.vaani.ood.CallHandler;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 @SuppressWarnings("unchecked")
 public class CallHandler {
 
+	private List<Call> call2;
 	static  final int LEVEL = 3 ; 
 	static  final int NUM_FRESH = 10 ; // freshers number
 	    
@@ -35,6 +37,7 @@ public class CallHandler {
         for ( int i =0 ; i < NUM_FRESH ; i ++ )
         {
             fresherList.add(new Fresher());
+			call2 = new ArrayList<Call>();
         }
         ArrayList<Employee> TLList = new ArrayList(1) ;
         TLList.add(new TL()) ;

@@ -1,5 +1,7 @@
 package com.vaani.ood.CallHandler;
 
+
+
 public class Call {
 
 	//public int rank1;
@@ -14,6 +16,8 @@ public class Call {
 	public void reply(String msg) {
 		// TODO Auto-generated method stub
 		
+	}
+	public Call() {
 	}
 
 }
