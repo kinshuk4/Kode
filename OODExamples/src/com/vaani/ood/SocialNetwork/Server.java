@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Server {
 	 public ArrayList<Machine> machineList = new ArrayList<Machine>() ;
-	    //private int MachineNumber ;
-	    
+	    //private int MachineNumber ;   
 	
 }
