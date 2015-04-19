@@ -1,0 +1,6 @@
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\bin\WcfService1.dll.config
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\bin\WcfService1.dll
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\bin\WcfService1.pdb
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\obj\Debug\WcfService1.dll
+Z:\kchandra\Lyf\WinHost\Github\Kode\CSharp\WCF\WcfService1\WcfService1\obj\Debug\WcfService1.pdb
