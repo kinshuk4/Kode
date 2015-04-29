@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="springQuizMaster" class="com.vaani.bean.quizmaster.SpringQuizMaster"></bean>
+    <bean id="strutsQuizMaster" class="com.vaani.bean.quizmaster.StrutsQuizMaster"></bean>
+    <bean id="quizMasterService" class="com.vaani.services.QuizMasterServiceSpring">
+        <property name="quizMaster">
+        	<ref bean="springQuizMaster"/>
+        </property>
+    </bean>
+
+</beans>

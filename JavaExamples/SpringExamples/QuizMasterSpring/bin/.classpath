@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="src/" kind="src" path=""/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.context_4.1.4.20150106-RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.core_4.1.4.20150106-RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.beans_4.1.4.20150106-RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.data.core_1.9.1.20150106-RELEASE.jar"/>
+	<classpathentry kind="lib" path="Z:/kchandra/Lyf/Kode/P4Prog/JavaAPIs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.expression_4.1.4.20150106-RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
