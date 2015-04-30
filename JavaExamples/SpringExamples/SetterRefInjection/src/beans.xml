@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="anotherBean" class="com.vaani.bean.AnotherBean">
+<property name="message"><value>I am from another bean</value></property>
+</bean>
+
+<bean id="exampleBean" class="com.vaani.bean.ExampleBean">
+   <property name="anotherBean">
+         <ref bean="anotherBean" />
+   </property>
+</bean>
+</beans>
