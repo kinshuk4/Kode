@@ -26,11 +26,23 @@
     </plugins>
   </build>
   <dependencies>
+  <!-- 
   <dependency>
     <groupId>com.sun.jersey</groupId>
     <artifactId>jersey-server</artifactId>
     <version>1.0.3.1</version>
     <scope>compile</scope>
+</dependency> -->
+<dependency>
+    <groupId>org.glassfish.jersey.containers</groupId>
+    <artifactId>jersey-container-servlet</artifactId>
+    <version>2.10</version>
+</dependency>
+<!-- if you are using Jersey client specific features without the server side -->
+<dependency>
+    <groupId>org.glassfish.jersey.core</groupId>
+    <artifactId>jersey-client</artifactId>
+    <version>2.10</version>
 </dependency>
   </dependencies>
 </project>

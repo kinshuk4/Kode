@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.data.core_1.9.1.20150106-RELEASE.jar"/>
 	<classpathentry kind="lib" path="Z:/kchandra/Lyf/Kode/P4Prog/JavaAPIs/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/ELunaSR2/eclipse/plugins/org.springframework.expression_4.1.4.20150106-RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/lyf/P4Prog/Eclipse/Android/sdk/tools/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
