@@ -1,9 +1,9 @@
 # Created by https://www.gitignore.io
 
 ### Eclipse ###
-*.pydevproject
-.metadata
-.gradle
+#*.pydevproject
+#.metadata
+#.gradle
 bin/
 tmp/
 *.tmp
@@ -15,7 +15,7 @@ local.properties
 .loadpath
 
 # Eclipse Core
-.project
+#.project
 
 # External tool builders
 .externalToolBuilders/
@@ -27,7 +27,8 @@ local.properties
 .cproject
 
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
+#.classpath
+*.class
 
 # PDT-specific
 .buildpath
