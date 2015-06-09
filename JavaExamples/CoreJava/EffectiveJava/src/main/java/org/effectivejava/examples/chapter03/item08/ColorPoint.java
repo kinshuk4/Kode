@@ -17,18 +17,19 @@ public class ColorPoint extends Point {
 		return super.equals(o) && ((ColorPoint) o).color == color;
 	}
 
-	// Broken - violates transitivity!
-	// @Override public boolean equals(Object o) {
-	// if (!(o instanceof Point))
-	// return false;
-	//
-	// // If o is a normal Point, do a color-blind comparison
-	// if (!(o instanceof ColorPoint))
-	// return o.equals(this);
-	//
-	// // o is a ColorPoint; do a full comparison
-	// return super.equals(o) && ((ColorPoint)o).color == color;
-	// }
+	 //Broken - violates transitivity!
+
+	 public boolean equals2(Object o) {
+	 if (!(o instanceof Point))
+	 return false;
+
+	 // If o is a normal Point, do a color-blind comparison
+	 if (!(o instanceof ColorPoint))
+	 return o.equals(this);
+
+	 // o is a ColorPoint; do a full comparison
+	 return super.equals(o) && ((ColorPoint)o).color == color;
+	 }
 
 	public static void main(String[] args) {
 		// First equals function violates symmetry
