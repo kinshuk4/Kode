@@ -1,0 +1,18 @@
+h1. Lab 3. Some additional capabilities of the IoC container
+
+h1. Exercise 1. Creating Multiple Contexts
+
+Refer **slide no. 154-157** for details. In @ex1@  package you will find the configuration for the parent and the child context both. The names of the xml files are @context-1.xml@ and @context-2.xml@. The code to create parent/child context can be found in @MultipleContextTest@ class. Review all the files and then run the test to see the working of the same.
+
+h1. Exercise 2. I18n support in Spring
+
+Refer **slide no. 159-161** for details on the steps. Review @OrderProcessingService@ class from @ex2@ package  which uses the _MessageSource_ API provided by Spring for accessing resource bundles. After you have understood the code, run the @MessageSourceTest@ class to see the working of the example.
+
+h1. Exercise 3. JUnit support in Spring
+
+Refer **slide no. 163-165** for details. @SampleBeanTest@  from @ex3@ package shows how we have been writing test cases till now and @SampleBeanTest2@ shows the better way of doing the same. Review both the classes and test the working to confirm.
+
+h1. Conclusion
+
+So in this small lab, we have seen some of the additional capabilities of Spring framework. With this lab, we conclude with our exploration of the IoC container and the core Spring capabilities. We have seen most of the options by now and i am sure you have a very good understanding of the framework by now. In our next lab, we will take up another very important aspect of Spring framework, i.e. AOP via AspectJ.
+

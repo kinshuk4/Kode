@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[2.3.2.201003220227-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/ex1/ex1-config.xml</config>
+		<config>src/ex2/ex2-config.xml</config>
+		<config>src/ex3/ex3-config.xml</config>
+		<config>src/ex4/ex4-config.xml</config>
+		<config>src/ex5/ex5-config.xml</config>
+		<config>src/ex7/ex7-config.xml</config>
+		<config>src/ex8/ex8-config.xml</config>
+		<config>src/ex6/ex6-config.xml</config>
+	</configs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="billPaymentService" class="ex6.BillPaymentServiceImpl" scope="prototype" />
+
+	<!--  We are using ApplicationContextAware interface here -->	
+	<bean id="customerService" class="ex6.CustomerServiceImpl" />
+	
+	<!--  We are using ObjectFactory interface here -->	
+	<bean id="customerService2" class="ex6.CustomerServiceImpl2">
+		<property name="factory">
+			<bean 
+				class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+				<property name="targetBeanName">
+					<idref local="billPaymentService" />
+				</property>
+			</bean>
+		</property>	
+	</bean>
+
+	<!-- We are using the ServiceLocatorFactoryBean here -->
+   <bean id="customerService3" class="ex6.CustomerServiceImpl3">
+     <property name="billPaymentServiceFactory" ref="serviceLocator"/>
+   </bean>
+
+   <bean id="serviceLocator"
+            class="org.springframework.beans.factory.config.ServiceLocatorFactoryBean">
+     <property name="serviceLocatorInterface" value="ex6.BillPaymentServiceFactory"/>
+   </bean>
+
+</beans>
+
+
+
+
+

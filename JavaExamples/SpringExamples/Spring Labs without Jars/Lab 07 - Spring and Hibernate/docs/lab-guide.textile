@@ -1,0 +1,28 @@
+h1. Lab 7 - Spring Hibernate Integration
+
+h1. Introduction
+
+In this lab we will spend time integrating Hibernate along with Spring. Also we will see Spring's support for JPA which is a standard API for working with ORMs like Hibernate and Toplink. Spring provides helper classes which deal with the issues which are mostly handled by developers. So even in case of Hibernate support, it's the same intention. Like we saw JdbcTemplate which simplifies JDBC access, we have a similar template API for Hibernate and JPA as well.
+
+h1. Exercise 1. Spring Hibernate example
+
+It's important that you take this lab seriously since Hibernate is widely used nowadays and Spring+Hibernate in combination is what every project deals with. We will have a look at different ways of writing a Repository class in Spring as discussed in **slide no. 252-257**. Also read the comments which i've kept in the source code as a quicknote on the same.
+
+Start by reviewing @HibernateProductRepository@ , @HibernateProductRepository2@ , @HibernateProductRepository3@  and @HibernateProductRepository4@ class  from the @ex1@ package one by one. Please review the classes carefully and don't be in a hurry. See to it that you are comfortable with different ways of managing Hibernate code using Spring API classes efficiently. Review the other classes and configuration files as well.
+
+Test out the different implementations one by one and see if everything is working perfectly.
+
+h1. Exercise 2. Spring JPA example
+
+JPA is just an abstraction over the ORM API. So instead of using Hibernate API directly in our code, we use  JPA so that our code is loosely coupled with an ORM. Refer **slide no. 259-261** for details.
+
+Review all the classes and configuration files in @ex2@ package one by one. The repository class using JPA is @JpaProductRepository@. You will see some additional transactional configuration, but you can ignore that for the time being as we will be discussing about the same in our next session. The reason i had to add transaction support was that it is mandatory that the code is running in a transaction when using JPA whereas Spring allows non-transactional Hibernate sessions to created.
+
+Test the code as usual and see if everything is okay.
+
+h1. Conclusion
+
+With this lab now, we have concluded with Spring's support for Data access. We saw how Spring can be used to simplify Hibernate code and also we evaluated Spring's support for JPA as well. So we are now moving ahead to the next very important feature provided Spring, i.e. Transaction management. In our next major session, we will discuss more about transactional capabilities of Spring.
+
+
+

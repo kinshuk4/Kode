@@ -1,0 +1,85 @@
+
+h1. Lab 2: Exploring DI in detail
+
+h1. Introduction
+
+In this lab we will try completing different possible ways of managing dependencies between objects. Also we will discuss about custom factory implementations for creating bean instances.
+
+h1. Exercise 1. Inheritance configuration
+
+As obvious, most components we develop will have a base class for sharing common behavior across the hierarchy. You can have a look at @BaseRepository@ class in the @common@ package. The @FlightRepository@ class from the @ex1@ package now extends this class. Now we don't need to inject the DataSource in each and every _repository_ class just because of inheritance. Before you test this code, open @ex1-config.xml@ file from the @ex1@ package and complete @TODO 1@ by referring to **slide no. 51**.
+
+Now run the @FlightRepositoryTest@ class from the @ex1@ package and see if the configuration is working or not.
+
+h1. Exercise 2. Static factory method
+
+Review @ClientService@ class from the @ex2@ package and see if you are clear with the bean structure. It has a static method which creates and returns an instance of the same class. The reason to configure such a class in Spring would be to inject this bean in other beans without others having any knowledge about how the instance was created. Open @ex2-config.xml@ file from the @ex2@ package and complete @TODO 2@ by referring to **slide no. 53**.
+
+Run the @ClientServiceTest@ class to see if the configuration is working.
+
+h1. Writing custom factory class
+
+h2. Exercise 3. Writing a factory class without using Spring API
+
+Review @MyServiceLocator@ class which is acting as a custom factory bean. Open @ex3-config.xml@ file and complete @TODO 3@ by referring to **slide no. 57**. Run the test class to confirm the same.
+
+Try passing parameters to the factory method from xml as well as the code by referring to **slide no. 58-59**.
+
+h2. Exercise 4. Using the FactoryBean interface for writing a factory class
+
+You can have a look at the modified version of @MyServiceLocator@ class from the @ex4@ package. To test this factory class, you will have to edit the @ex4-config.xml@ file and complete @TODO 4@ by referring to **slide no. 62**.
+
+h1. Exercise 5. Lookup method injection
+
+Lookup method injection is one way of managing dependencies between beans of different scope. Review the @NewsFeed@ and @NewsFeedManager@ class from @ex5@ package to understand the scenario. Open @ex5-config.xml@ file and complete @TODO 5@ to configure the lookup method by referring to **slide no. 65**.
+
+Run the @NewsFeedManagerTest@ class and see if it's working or not.
+
+h1. Using Spring API for managing dependencies
+
+h2. Exercise 6. Using ApplicationContextAware interface for injecting the dependency
+
+Any spring managed bean can communicate with the IoC container by implementing this interface. We will see how to use this strategy to dynamically access the target bean. This time you don't need to complete any _TODOs_, so please review the code correctly step by step and then run the test class. The main class in this example is @CustomerServiceImpl@ from the @ex6@ package. Refer to **slide no. 68-69** for details. Also have a look at @ex6-config.xml@ file to understand the configuration. CustomerService bean is singleton, but BillPaymentService bean is non-singleton. If you see the @payBill@ method of @CustomerServiceImpl@ class carefully, what will happen is everytime this method will be called, it will end up creating a fresh new instance of BillPaymentService bean according to the xml configuration.
+
+Run the @CustomerServiceTest@ class to verify the same. Add your own asserts/println wherever you like to debug the code further if required.
+
+h2. Exercise 7. Using ObjectFactory interface for injecting the dependency
+
+With the help of ObjectFactory interface, we can again achieve the same requirement of dynamically accessing the target bean as explained in **slide no. 70**. Have a look at @CustomerServiceImpl2@ class which uses this approach. The same xml file, @ex6-config.xml@ contains the configuration for this bean. So what you need to do is change the id of the bean in the _getBean()_ call inside the @CustomerServiceTest@ class and run it to verify the code.
+
+h2. Exercise 8. Using ServiceLocatorFactoryBean class for injecting the dependency
+
+The problem as discussed in **slide no. 73** can be solved using this helper class. But there are some steps to be followed to achieve this as again mentioned in the slides.
+
+So let's revisit the scenario. CustomerService needs a fresh new instance of BillPaymentService but this time without using any Spring framework API. Please see to it that you are very clear with the requirement before you proceed.
+
+Refer to **slide no. 74-76** for details. Have a look at @BillPaymentServiceFactory@ from @ex6@ package. Also see how @CustomerServiceImpl3@ class uses this factory interface to achieve transparency. Open @ex6-config.xml@ file and review the configuration carefully because that's where the abstraction is realized correctly.
+
+Run the test class and verify the configuration once again.
+
+h1. Examples on using different namespaces provided by Spring
+
+Refer to **slide no. 78-81** for details.
+
+h2. Exercise 9. Example on util namespace
+
+We will see how to inject a Properties object in our bean class. Start by having a look at @SomeServiceClass@ from @ex7@ package. Open @ex7-config-1.xml@ which contains the given configuration. Refer to **slides no. 83-84** to understand the configuration. Complete @TODO 7@ by injecting the properties object.
+
+Run the @SomeServiceClassTest@ class and see if everything is working. 
+
+h2. Exercise 10. Example on p namespace
+
+p namespace was introduced to make it easy to set the properties of a bean whereby reducing the xml metadata. Till now the only option to set a property of the bean class was to use @<property>@ tag. Refer @db-config-1.xml@ file from @ex7@ package to pick up the new way of configuration. To test whether the DataSource has been created successfully or not, run the @DataSourceTest@ class and verify the same.
+
+Now we will try injecting the DataSource in one of our beans using the p namespace instead of the property tag. You will find @FlightRepositoryImpl@ class in the @ex7@ package and the xml file containing the partial configuration is @ex7-config-2.xml@ file. Complete @TODO 8@ by referring to **slide no. 89** to inject a DataSource using the p namespace. 
+Run the @FlightRepositoryTest@ to test the configuration.
+
+h2. Exercise 11. Example on context namespace
+
+@db-config-2.xml@ file contains an example on context namespace. Refer to **slide no. 90-93** for details. To test whether the DataSource gets the correct property values, edit the name of the xml file in @DataSourceTest@ class and run it.
+
+@db-config-3.xml@ file contains one more example on using context namespace. Refer to **slide no. 94-96** for details. Once again reuse the same test class, @DataSourceTest@ by editing the xml filename and see if it works.
+
+h1. Conclusion
+
+In this lab, we saw different ways of managing dependencies. As you can see, Spring framework has matured a lot over these years and provides us with a range of options for solving a problem. Also we saw some examples demonstrating the benefits of using namespaces in our xml metadata. In the next lab, we will dive deep into the IoC container and discuss about lifecycle and other issues.

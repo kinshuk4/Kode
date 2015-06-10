@@ -1,0 +1,12 @@
+h1. Lab 6. Spring JDBC Support
+
+h1. Quickstart
+
+In this small lab, you will evaluate how JdbcTemplate class simplifies writing JDBC code. This example contains a small class by the name @JdbcFlightRepository@ class in the @repository@ class. Review each and every method and see if you are finding the API comfortable to learn. Refer **slide no. 238-248** for details on the same.
+
+The small test class @FlightRepositoryTest@ from the @test@ package can be used for testing individual methods one by one.
+
+If time permits, try out some of the ways of writing a Repository class as mentioned in the slides.
+
+Oops. That's the end of this lab guide!
+

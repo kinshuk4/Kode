@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="billPaymentService" class="ex5.BillPaymentServiceImpl" />
+	
+	<bean id="customerService" class="ex5.CustomerServiceImpl" />
+	
+	<!--  According the code, we need to set both the dependencies.
+	Comment out one or both the property tag and see the error -->
+	<bean id="bankService" class="ex5.BankServiceImpl">
+		<property name="billPaymentService" ref="billPaymentService" />
+		<property name="customerService" ref="customerService" />
+	</bean>
+	
+	<!-- Just by using @Required will not work. Someone has to parse it
+	and that's the role of this class -->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+
+</beans>

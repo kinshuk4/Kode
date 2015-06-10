@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p">
+
+ 	<bean id="myDataSource" 
+  		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        p:driverClassName="${driver}"
+        p:url="${url}"
+        p:username="${user}"
+        p:password="${pass}"/>
+
+	<!-- Old style configuration. Test one at a time by commenting the other -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:ex7/db.properties" />
+	</bean>
+
+	<!-- Using context schema to achieve the same -->
+	<context:property-placeholder location="classpath:ex7/db.properties" />
+	
+</beans>

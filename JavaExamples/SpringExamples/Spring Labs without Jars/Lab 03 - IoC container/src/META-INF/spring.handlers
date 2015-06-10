@@ -1,0 +1,3 @@
+#spring.handlers
+http\://www.majrul.com/training/spring/customns=ex8.CustomNamespaceHandler
+

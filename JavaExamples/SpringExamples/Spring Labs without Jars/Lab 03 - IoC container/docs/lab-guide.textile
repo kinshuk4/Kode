@@ -1,0 +1,75 @@
+h1. Lab 3. Diving deep inside the IoC container
+
+h1. Spring 3.0 enhancements
+
+The first thing we will do is check out some of the new features introduced in Spring 3.0.
+
+h2. Using EL
+
+h3. Exercise 1. Using EL in xml configuration
+
+Expressions, _#{expr}_ can now be used throughout the framework now from 3.0 onwards. It's the easiest way possible now for setting bean properties wherever possible.
+
+We will do a small example in which we will see how to conveniently read system properties using EL notations. Start by reviewing @ErrorHandler@ class from @ex1@ package. According the code, we need to initialize the _defaultLocale_ property. Open @ex1-config-1.xml@ file and complete @TODO 1@ by referring to **slide no. 102** to use EL for initializing the _defaultLocale_.
+
+Run the @ErrorHandlerTest@ class to test whether EL is working or not.
+
+h3. Exercise 2. Using EL via annotations
+
+We need to use _@Value_ annotation to initialize bean properties using EL. The advantage of this annotation is also the same as other annotations, it can be used at the field level directly. Open @ErrorHandler2@ class and complete @TODO 2@ by referring to **slide no. 103**. 
+
+Run @ErrorHandlerTest2@ to see if @Value annotation is working or not.
+
+h2. Exercise 3. Annotation based container metadata 
+
+Refer to **slide no. 104-105** for details.
+
+Review @AppConfig@ class from @ex2@ package carefully and see if you are clear with the intent of this code. Also review the other dependent classes as well. Refer to **slide no. 106** for details.
+
+Open @AppConfigTest@ class and see how this time we created an ApplicationContext instance without supplying an xml. Refer to **slide no. 107** for details. Run the test class and see if you are clear with the working of the same.
+
+Try using autowiring as mentioned on **slide no. 106**. Also try creating an xml file to create an ApplicationContext instance according to the instructions mentioned on **slide no. 107**.
+
+h1. Lifecycle management
+
+In this section, we will review the lifecycle of beans managed by the container as well as the extension points available to manage the container's lifecycle.
+
+h2. Exercise 4. Bean lifecycle
+
+Any spring managed object can receive callbacks from the container to perform initialization and cleanup operations. There are different ways to deal with it as mentioned in **slide no. 109**. 
+
+Review @LifecycleBean@ , @LifecycleBean2@ and @LifecycleBean3@ class from @ex3@ package to identify different ways of managing a beans lifecycle. Run the @LifecycleTest@ class so that you will be able to test the same. Refer **slide no. 110-113** for details.
+
+h2. Exercise 5. Container level lifecycle extensions
+
+Refer **slide no. 116** for details about the lifecycle activities of an IoC container. Understanding the lifecycle is complex and at the same time very interesting. Start by carefully reviewing _all the java classes_ one by one from the @ex4@ package. Refer to the appropriate slides about details on the relevant implementations. You need to run the @LifecycleTest@ class to see the complete lifecycle in action. Take your time and don't be in a hurry. According to me, this is one of the most important examples on IoC. By the time you complete this example, you will be able to easily extend the capabilities of the IoC container with the help of the different interfaces used in this example here.
+
+h3. Exercise 6. Example on RequiredAnnotationBeanPostProcessor
+
+This is a ready to use BeanPostProcessor implementation. Start by reviewing the @BankServiceImpl@ class. As you can see we are using the _@Required_ annotation here. Refer to **slide no. 121-123** for details. So according the code, both the dependencies need to be injected or else we should get an error. We will now test this behavior and see if is true. Run the @RequiredAnnotationTest@ class and confirm.
+
+h3. Exercise 7. Raising a custom event
+
+In this example, we will see how to raise an event from the code. Refer to **slide no. 135** for details. Start by reviewing @BlackListEvent@ , @EmailBean@ and @BlackListNotifier@ classes to understand the scenario. Refer to **slide no. 136-138** for details. @ex6-config.xml@ file contains the configuration of these beans. Review the configuration and see if is is okay. To test the working, you need to run the @CustomEventTest@ class.
+
+Apart from this you can also review @ContextClosedListener@ class which is yet another example on writing listeners in Spring.
+
+h1. Exercise 8. Creating custom scopes in Spring
+
+In this section, we will have a quick look at how to create our own "thread" scope implementation. Open @ThreadScope@ class and review the code. @ex7-config.xml@ contains the configuration required for registering custom scopes. We have a small @EmployeeService@ class which we will bind it to @thread@ scope. This  time for testing purpose, i haven't written a Test class, it's a plain Java class with the _main_ method. The name of the class is @CustomScopeTest@. To test whether "thread" scope is working or not, i have created couple of threads and what should happen is, for each thread one instance of _EmployeeService_ should get created. Review the test class to confirm the same.
+
+h1. Exercise 9. Creating custom namespaces in spring
+
+There are multiple steps to follow for creating a custom namespace in Spring. **slide no. 146-150** contains details about these steps. 
+
+# Creating a schema definition file _(myspring.xsd)_ 
+# Map the logical namespace URI to the physical xsd file _(META-INF/spring.schemas)_
+# Map the namespace to a namespace handler class in Spring _(META-INF/spring.handlers)_ & _(ex8/CustomNamespaceHandler.java) 
+# Map each custom tag/element in the namespace with the Parser class (ex8/MyDatabaseBeanDefinitionParser.java)
+# Use the namespace like any other namespace in your configuration file (ex8/ex8-config.xml)
+
+Review the steps. See to it that you are comfortable with the steps and then proceed towards the testing. The name of the test class is @CustomNamespaceTest@.
+
+h1. Conclusion
+
+In this very important lab, we saw lot's of customization possible in Spring framework. With every version the list of improvements keeps on increasing. We also saw some of the features of Spring 3. Plus we discussed about  lifecycle methods, event handling and other core customizations. In the next lab, we will review some more features provided by the IoC container.

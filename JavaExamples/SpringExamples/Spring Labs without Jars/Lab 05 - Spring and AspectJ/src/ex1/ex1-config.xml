@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Tells the container we will be using AspectJ.
+	Also tells the container to use the proxy approach for executing aspects -->
+	<aop:aspectj-autoproxy />
+	
+	<bean id="customerService" class="service.CustomerServiceImpl" />
+	
+	<bean id="loggingAspect" class="ex1.LoggingAspect" />
+
+	<aop:config>
+		<aop:pointcut expression="execution(public * apply*(..))" id="pointcut1" />
+		<aop:aspect ref="loggingAspect">
+			<aop:before method="log" pointcut-ref="pointcut1" />
+		</aop:aspect>		
+	</aop:config>	
+		
+</beans>

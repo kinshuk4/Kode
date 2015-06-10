@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!--  TODO 2: Refer slide no. 53 to correctly configure ClientService bean -->
+	<bean id="clientService" class="ex2.ClientService" />
+	
+</beans>
+

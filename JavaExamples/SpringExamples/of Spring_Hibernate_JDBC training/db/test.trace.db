@@ -1,0 +1,6 @@
+06-16 10:04:42 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" already exists; SQL statement:
+create table test(col1 varchar(10)); [42101-147]
+07-07 09:22:46 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST" already exists; SQL statement:
+create table test(col1 varchar(10)); [42101-147]

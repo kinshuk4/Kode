@@ -1,0 +1,69 @@
+h1. Lab 1 - Spring quickstart
+
+h1. Introduction
+
+Before we begin with, thanks a lot for showing your interest in learning Spring 3.0. Hope you have a wonderful learning experience ahead. Let me very quickly explain you the training methodology first.
+
+In this 2 days fast track course on Spring, i've tried my best to incorporate as many features as i can. Spring is so vast that it's not possible to cover everything in 2 days. This course covers the core concepts and also discusses about integrating it with enterprise services like Hibernate, JTA and others.
+
+Each day we will have 3-4 theory and lab sessions. After the theory we will have a lab to review all the points that we discussed. Since almost every technology supports annotations by now, so it's my responsibility to show you both the ways of configuration wherever possible. 
+
+Also you need to keep the presentation ready since there are continuous references to slide numbers throughout the lab guide. Each eclipse project covers one lab. 
+
+So let's begin with our first lab then. All the best! Do let me know if you face any difficulties in picking up the labs.
+
+h1. Introduction to DI and IoC
+
+Refer **slide no. 21-23** for details on DI and IoC.
+
+h1. Exercise 1. Setter injection using xml configuration
+
+In Spring, we write POJOs for everything. That's one of the core reasons for it's popularity. To begin with you can review @FlightRepositoryImpl@ from the @xml@ package. As you can see we need to inject a @DataSource@ object. Open @xml-config-1.xml@  file and complete @TODO 1@ by referring to **slide no. 26**.  Also please edit the @db-config.xml@  file which contains the @DataSource@ configuration for the target database.
+
+Next, you need to run a small script which will create the required table and insert some rows in the database. Run the  @script.sql@ file from @resources@ folder in the target database.
+
+To test whether the DataSource has been injected successfully or not, open @FlightRepositoryTest@ class from the @test@ package. You need to run this as a _Junit Test Case_ in eclipse and see if everything is okay. To understand the test code, please refer to **slide no. 43**.
+ 
+h1. Exercise 2. Setter injection using annotations
+
+Annotations are a replacement for xml style configuration. Although not 100%, but it surely reduces the amount of xml we need to maintain. In this section, we will try to annotate our bean with the necessary dependencies. Open @FlightRepositoryImpl@ from the @annotations@ package. Complete @TODO 2@ by referring to **slide no. 27** to identify the correct annotation to be used for the setter method.
+
+Open @annotations-config-1.xml@ file and complete @TODO 3@ by referring to **slide no. 27**. 
+
+Now to confirm whether annotations are working or not, reuse the same test class, @FlightRepositoryTest@ by just editing the name of the xml file to be loaded and that's the power of interfaces in Java as you already know!
+
+h1. Exercise 3. Using annotations for bean definition
+
+As you saw, we need to still add an entry in the xml file for the _repository_ class since we are using annotations for DI only. To automatically register a bean with the container, refer to **slide no. 30** and complete @TODO 4@ from @FlightRepositoryImpl@ class. When using annotation for registering a bean, the bean id can be provided as a String within the annotation used.
+
+Open @annotations-config-1a.xml@ file and complete @TODO 5@ by referring to **slide no. 30**. Run the test class by loading this xml file and see if it works. 
+
+h1. Exercise 4. Constructor injection using xml configuration
+
+Constructor injection is another way of initializing the dependencies. Rather it's the easiest way of forcing all the dependencies to get initialized. So let's quickly try out one example for testing out the same. Open @FlightRepositoryImpl2@ from the @xml@ package. You will see the same code as before but with a constructor instead of a setter method. In the @xml-config-2.xml@ file, complete @TODO 6@ by referring to **slide no. 31**.
+
+Run the test class by loading @xml-config-2.xml@ file and see if everything is working correctly again.
+
+h1. Exercise 5. Constructor injection using annotations
+
+Open @FlightRepositoryImpl2@ from the @annotations@ package and complete @TODO 7@ by referring to **slide no. 33**. There is no change in the xml needed since we have annotated the bean class with _@Repository_ annotation, so there is no need to do any entry in the xml file. Just review the @annotations-config-2.xml@ file once and run the test class by loading this xml file.
+
+h1. Exercise 6. Additional ways of using @Autowired and @Resource annotation
+
+Both these annotations give us the freedom to go beyond constructors and setters, we can even use these annotations to initialize private fields of our bean class directly. Open @FlightRepositoryImpl3@ from the @annotations@ package and complete @TODO 8@ by referring to **slide no. 36**. Test it as usual. 
+
+Similarly you can test the same code using _@Resource_  annotation instead of _@Autowired_  annotation and see if it's working once again.
+
+h1. Exercise 7. Autowiring using xml configuration
+
+Open @xml-config-3.xml@ file and complete @TODO 9@ by referring to **slide no. 38**. There is no change in the code, but you can still review @FlightRepositoryImpl3@ once. Reuse the same test class by loading this xml file. Try out both the ways of autowiring!
+
+h1. Conclusion
+
+So in this lab we saw how to inject the dependencies in two ways:
+
+* setter injection
+* constructor injection
+
+Also we saw _XML_ as well as _annotations_ approach for DI. Finally we also understood autowiring in Spring. 
+In the next lab, we will see more examples on _Dependency Injection_.

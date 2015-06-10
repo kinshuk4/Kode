@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p">
+
+	<import resource="db-config-1.xml" />
+
+	<!-- Traditional way of setting dependencies -->
+	<bean id="flightRepositoryOld" class="ex7.FlightRepositoryImpl">
+		<property name="dataSource" ref="myDataSource" />
+	</bean>
+
+	<!-- TODO 8: Use p namespace for injecting the DataSource. Refer slide no. 89 -->	
+	<bean id="flightRepository" class="ex7.FlightRepositoryImpl" />
+	
+</beans>
+
+
+
+
+

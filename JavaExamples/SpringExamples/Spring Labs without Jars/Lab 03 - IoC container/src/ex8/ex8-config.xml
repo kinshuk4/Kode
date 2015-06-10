@@ -1,0 +1,15 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:myns="http://www.majrul.com/training/spring/customns"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.majrul.com/training/spring/customns http://www.majrul.com/training/spring/customns.xsd">
+
+	<myns:dataSource id="ds" 
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/test" 
+		username="root" password="" />
+	
+	<bean id="flightDao" class="ex8.FlightServiceDao">
+		<property name="dataSource" ref="ds" />
+	</bean>
+
+</beans>        

@@ -1,0 +1,17 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+
+<aspectj>
+
+	<weaver>
+		<!-- only weave classes in our application-specific packages -->
+		<include within="service.*" />
+		<include within="ex8.*" />
+	</weaver>
+
+	<aspects>
+		<!-- weave in just this aspect -->
+		<aspect name="ex8.ProfilingAspect" />
+	</aspects>
+
+</aspectj>

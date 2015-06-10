@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!--  Please edit the DataSource configuration in db-config.xml file once -->
+	<import resource="db-config.xml" />
+
+	<bean id="flightRepo" class="xml.FlightRepositoryImpl">
+		<!--  TODO 1: Refer slide no. 26 to inject the DataSource -->
+	</bean>
+	  	
+</beans>
+

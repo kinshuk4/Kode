@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<context:component-scan base-package="ex3" />
+	
+	<bean id="bean1" class="ex3.LifecycleBean" />
+	
+	<bean id="bean2" class="ex3.LifecycleBean2" init-method="setup" destroy-method="cleanup" />
+	
+	<!-- No need to add entry for LifecycleBean3 as it's annotated. Refer the source code-->
+	
+</beans>

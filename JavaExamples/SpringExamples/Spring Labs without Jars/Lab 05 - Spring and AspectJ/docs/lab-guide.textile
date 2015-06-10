@@ -1,0 +1,47 @@
+h1. Lab 5. Working with Aspect Oriented Programming
+
+h1. Introduction
+
+This lab is dedicated only to AOP. We will see different ways of dealing with Aspects. Aspects can be configured both in xml as well as annotations, so atleast for one example i will show you how to use xml approach and then you can optionally try it for all the examples if you wish. Whether xml or annotations, the concepts doesn't change. So let's get into action.
+
+h1. Exercise 1. XML based AOP configuration for a Before Advice
+
+Refer to **slide no. 186 and 193-194** for details. Have a look at @LoggingAspect@ class from @ex1@ package.  The sample bean class used in this example is @CustomerServiceImpl@ from the @service@ package. Review the @ex1-config.xml@ file which contains the configuration required for wrapping the LoggingAspect around CustomerService class. Run the @LoggingTest@ class to complete the example.
+
+h1. Exercise 2. Using Annotations for configuring advices
+
+In this example, we will see the usage of annotations instead of xml configuration. You can have a look at the modified version of @LoggingAspect@ class in the @ex2@ package. We have a similar test class to confirm the default working.
+
+You can also review @LoggingAspect2@ class which uses the JoinPoint API. The code is incomplete, you can add your own println() to understand the different methods. Refer to **slide no. 198-199** for details about the methods used.
+
+After you have understood how to configure pointcuts, try out the other possible ways of configuring pointcuts by referring to *slide no. 203-207*. Use @LoggingAspect@ class for testing different expressions one by one. Don't be in a hurry over here, take your time to understand pointcut expressions correctly.
+
+h1. Exercise 3. Binding parameters to advice
+
+@OrderValidator@ class reads parameters passed to bean methods for processing purpose. Another way of achieving the same is by using JoinPoint object. Refer to **slide no. 208-209** for details. The test class is provided for verifying the same.
+
+h1. Exercise 4. Named Pointcut expressions
+
+Check out @PointcutConfig@ class from @ex4@ package which used named pointcuts. Refer *slide no. 211-212** for details. Run the test and see if this works. Also try experimenting with it on your own to get more comfortable with the same. This is the only confusing aspect of Spring AOP.
+
+h1. Exercise 5. Implementing @After and @AfterReturning advice
+
+Refer **slide no. 187-188** for details. @LoggingAspect@ class from @ex5@ package contains an implementation for these two aspects. Review the code and run the test class to confirm the working of the same.
+
+h1. Exercise 6. Implementing @AfterThrowing advice
+
+Refer **slide no. 189** for details. In this example, we have a small @BusinessComponent@ class from the @ex6@ package which will purposely raise an exception whenever the method will be called. The @ExceptionHandler@ class is an AOP aspect which will execute only when the target bean method raises an exception. Review the code and see if you are comfortable with the same. The test class provided will confirm the same.
+
+h1. Exercise 7. Implementing @Around advice
+
+Refer **slide no. 190** for details. @ProfilingAspect@ class from @ex7@ package contains an advice which will execute around a method invocation. The configuration in the xml is almost the same in all the examples because we are using annotations for configuring our aspects. Test the code as usual to confirm it's working.
+
+h1. Exercise 8. Using LTW instead of proxies
+
+There are no new classes this time to review as LTW is more of a change in the configuration file. Refer **slide no. 219-222** for details. To use LTW instead of proxies for AOP, have a look at @ex8-config.xml@ file for the changes. Again take your time to understand this step correctly and then run the test class to confirm the same. Please note you will have to run the test case by passing a system property as mentioned on **slide no. 223**.
+
+h1. Exercise 9. Conclusion
+
+In this lab session we tried different ways of writing aspects. Also we saw how different AspectJ expressions supported by Spring make it a very powerful tool. By default Spring relied on proxies for managing aspects and we also saw how to switch to LTW to achieve the same. 
+
+So with IoC and AOP together, we get the most powerful component development technology on earth which no other technology can compete with so easily. 

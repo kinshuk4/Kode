@@ -1,0 +1,27 @@
+h1. Lab 8 - Transaction management
+
+h1. Introduction
+
+In this yet another important lab, we will try different options related to managing transactions for our beans. I want to show you one full-fledged example on annotations and this example achieves the same. In this example none of the user defined beans are configured in the xml.
+
+There are many classes in this example, so spend some time getting familiar with these classes. 
+
+
+* Start by reviewing the Hibernate entities in the @entity@ package. These entities are the ones which have been mapped to the tables in the database.
+* Next we have 3 repository classes in this example, @OrderRepository@ , @PaymentRepository@ and @ProductRepository@. Please go through with the respective implementation classes as well.
+* Now have a look at @OnlineShoppingService@ interface and it's implementation @OnlineShoppingServiceImpl@ defined in the @service@ package. This service class will act as an entry point in the application. The diagram below gives you a quick idea about the overall configuration.
+
+!flow.jpg! 
+
+Since we are using annotations, only the infrastructure configuration is found in @ex-config.xml@ file. Please review the configuration and see if you are able to relate it correctly to the code.
+
+Before you run the test class, you need to create a small table whose script i've provided you in the @resources@ folder.
+
+By default when you run the test class, everything will commit and you will be able to see the changes getting reflected in the following tables: @tx_orders@ , @tx_payments@ and @tx_products@.
+
+Once you get comfortable with the example, now we need to try out different options as discussed in **slide no. 286-294**. I'll take over from here. We will try it out together since i also need to discuss a bit more about the same.
+
+
+h1. Conclusion
+
+If you are reading this conclusion before completing the lab, then we haven't yet concluded. Thank you!
