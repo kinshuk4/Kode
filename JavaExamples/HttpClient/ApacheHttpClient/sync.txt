@@ -1,0 +1,1 @@
+10.0th percentile value: 5.292139124E850.0th percentile value: 5.671180855E890.0th percentile value: 7.668635754E895.0th percentile value: 8.260665374E899.0th percentile value: 1.7591782106999981E9

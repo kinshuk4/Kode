@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -15,6 +16,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -37,6 +39,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.nio.client.CloseableHttpAsyncClient;
 import org.apache.http.impl.nio.client.HttpAsyncClients;
 import org.apache.http.protocol.HttpContext;
+import org.apache.http.util.EntityUtils;
 
 public class ApacheAsyncClient implements ILogger {
 	private CloseableHttpAsyncClient client;
@@ -147,29 +150,49 @@ public class ApacheAsyncClient implements ILogger {
 		// return getResponse(url,execute(get));
 	}
 
-	public void multiGetPost(String url, Map<String, String> getHeader) throws Exception {
+	public void asyncGet(final String url, Map<String, String> getHeader) throws Exception {
 
-		final HttpGet[] requests = new HttpGet[] { new HttpGet(
-				"http://192.168.26.175:8080/examples/eye/abc10000.jsp") };
+		final List<HttpGet> requests = new LinkedList<HttpGet>();
+		
+		for(int i=0;i<100;i++){
+			HttpGet request = new HttpGet(url);
+			for(String key : getHeader.keySet()){
+				request.addHeader(key,getHeader.get(key));
+			}
+			requests.add(request);
+		}
+		
 		final CountDownLatch latch = new CountDownLatch(1);
-		for (int v = 0; v < 1000; v++) {
-			client.execute(requests[0], new FutureCallback<HttpResponse>() {
+		for ( int v = 0; v < 100; v++) {
+			final Integer iob = new Integer(v);
+			
+			client.execute(requests.get(v), new FutureCallback<HttpResponse>() {
 
 				public void completed(final HttpResponse response) {
+			        if(response!=null){
+			            String jsonBody = "";
+			            HttpEntity entity = response.getEntity();
+			    		if (entity != null)
+			    			jsonBody = EntityUtils.toString(response.getEntity());
+			    		System.out.println(jsonBody);
+			    		
+			    			response = client.post(url, jsonBody);
+			    			System.out.println(response);
+			            }
 					latch.countDown();
-					System.out.println(requests[0].getRequestLine() + "->"
+					System.out.println(requests.get(iob).getRequestLine() + "->"
 							+ response.getStatusLine());
 				}
 
 				public void failed(final Exception ex) {
 					latch.countDown();
-					System.out.println(requests[0].getRequestLine() + "->" + ex);
+					logger.error(requests.get(iob).getRequestLine() + "->" + ex);
 				}
 
 				public void cancelled() {
 					latch.countDown();
-					System.out.println(requests[0].getRequestLine()
-							+ " cancelled");
+					//System.out.println(requests.get(v).getRequestLine()
+					//		+ " cancelled");
 				}
 
 			});
@@ -199,51 +222,8 @@ public class ApacheAsyncClient implements ILogger {
 		return null;
 	}
 
-	/**
-	 * 
-	 * @param url
-	 * @param jsonBody
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 */
-//	public HttpResponse put(final String url, final String jsonBody)
-//			throws ClientProtocolException, IOException {
-//		return put(url, jsonBody, null);
-//	}
 
-	/**
-	 * 
-	 * @param url
-	 * @param jsonBody
-	 * @param authCredentials
-	 *            in format "USERNAME:PASSWORD"
-	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
-	 */
-//	public HttpResponse put(final String url, final String jsonBody,
-//			final String authCredentials) throws ClientProtocolException,
-//			IOException {
-//		if (url == null || url.trim().isEmpty()) {
-//			logger.error("URL cannot be null or empty");
-//			return null;
-//		}
-//		logger.debug("URL -> " + url);
-//		HttpPut put = new HttpPut(url.trim());
-//		put.addHeader("Content-Type", "application/json");
-//		put.addHeader("Accept", "application/json");
-//		if (!(authCredentials == null || authCredentials.trim().isEmpty())) {
-//			put.addHeader(
-//					"Authorization",
-//					"Basic "
-//							+ Base64.encodeBase64String(authCredentials.trim()
-//									.getBytes()));
-//		}
-//		put.setEntity(new StringEntity(jsonBody, ContentType.APPLICATION_JSON));
-//		HttpResponse response = getResponse(url, execute(put));
-//		return response;
-//	}
+
 
 	/**
 	 * 
@@ -255,31 +235,7 @@ public class ApacheAsyncClient implements ILogger {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-//	public HttpResponse put(final String url, final List<NameValuePair> body,
-//			final String authCredentials) throws ClientProtocolException,
-//			IOException {
-//		if (url == null || url.trim().isEmpty()) {
-//			logger.error("URL cannot be null or empty");
-//			return null;
-//		}
-//		logger.debug("URL -> " + url);
-//		HttpPut put = new HttpPut(url.trim());
-//		put.addHeader("Content-Type", "application/x-www-form-urlencoded");
-//		if (!(authCredentials == null || authCredentials.trim().isEmpty())) {
-//			put.addHeader(
-//					"Authorization",
-//					"Basic "
-//							+ Base64.encodeBase64String(authCredentials.trim()
-//									.getBytes()));
-//		}
-//		put.addHeader("Connection", "keep-alive");
-//		put.addHeader("X-Requested-With", "XMLHttpRequest");
-//		put.addHeader(
-//				"User-Agent",
-//				"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36");
-//		put.setEntity(new UrlEncodedFormEntity(body));
-//		return getResponse(url, execute(put));
-//	}
+
 
 	/**
 	 * 
@@ -304,27 +260,27 @@ public class ApacheAsyncClient implements ILogger {
 	 * @throws ClientProtocolException
 	 * @throws IOException
 	 */
-//	public HttpResponse post(final String url, final String jsonBody,
-//			final String authCredentials) throws ClientProtocolException,
-//			IOException {
-//		if (url == null || url.trim().isEmpty()) {
-//			logger.error("URL cannot be null or empty");
-//			return null;
-//		}
-//		logger.debug("URL -> " + url);
-//		HttpPost post = new HttpPost(url.trim());
-//		post.addHeader("Content-Type", "application/json");
-//		post.addHeader("Accept", "application/json");
-//		if (!(authCredentials == null || authCredentials.trim().isEmpty())) {
-//			post.addHeader(
-//					"Authorization",
-//					"Basic "
-//							+ Base64.encodeBase64String(authCredentials.trim()
-//									.getBytes()));
-//		}
-//		post.setEntity(new StringEntity(jsonBody, ContentType.APPLICATION_JSON));
-//		return getResponse(url, execute(post));
-//	}
+	public HttpResponse post(final String url, final String jsonBody,
+			final String authCredentials) throws ClientProtocolException,
+			IOException {
+		if (url == null || url.trim().isEmpty()) {
+			logger.error("URL cannot be null or empty");
+			return null;
+		}
+		logger.debug("URL -> " + url);
+		HttpPost post = new HttpPost(url.trim());
+		post.addHeader("Content-Type", "application/json");
+		post.addHeader("Accept", "application/json");
+		if (!(authCredentials == null || authCredentials.trim().isEmpty())) {
+			post.addHeader(
+					"Authorization",
+					"Basic "
+							+ Base64.encodeBase64String(authCredentials.trim()
+									.getBytes()));
+		}
+		post.setEntity(new StringEntity(jsonBody, ContentType.APPLICATION_JSON));
+		client.execute(post, new )
+	}
 
 	/**
 	 * 

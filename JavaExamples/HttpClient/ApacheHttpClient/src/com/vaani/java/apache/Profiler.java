@@ -20,8 +20,10 @@ public class Profiler {
 	}
 
 	ApacheHttpClient client = new ApacheHttpClient();
+	ApacheAsyncClient asyncClient = new ApacheAsyncClient();
 
 	public long simpleProfile() throws ClientProtocolException, IOException {
+		client  = new ApacheHttpClient();
 		long startTime = System.nanoTime();
 
 		HttpResponse response = client.get(url, getHeader, 0);
@@ -40,6 +42,7 @@ public class Profiler {
 		long endTime = System.nanoTime();
 
 		long duration = (endTime - startTime);
+		client.close();
 		return duration;
 	}
 	
