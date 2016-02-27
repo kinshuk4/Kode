@@ -10,7 +10,9 @@ git clone https://github.com/balaji4894/rest-sample.git
 
 Import as git project in Eclipse JEE IDE.
 
-Run on Tomcat server
+Make a maven update of the project, with force update of snapshots.
+
+Run on Tomcat server 8 .
 
 Goto http://localhost:port/RestSample/api/sample to view returned json from REST api
 
