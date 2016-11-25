@@ -4,7 +4,7 @@ This is a simple JAVA Rest Service using spring-maven-jackson core
 
 # To clone
 
-git clone https://github.com/balaji4894/rest-sample.git
+git clone https://github.com/kinshuk4/rest-sample.git
 
 # To run
 
