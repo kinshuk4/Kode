@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class UserLogin {
 
 	@NotEmpty
-	@Size(min=5, max=20)
+	@Size(min=5)
 	private String userName;
 		
 	@NotEmpty

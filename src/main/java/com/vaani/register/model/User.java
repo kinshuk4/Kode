@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -23,7 +24,8 @@ public class User {
 	private Long id;
 	
 	@NotEmpty
-	@Size(min=4, max=20)
+	@Size(min=5)
+	@Pattern(regexp="^[A-Za-z0-9]*$",message="Username can only contain alphanumeric values." )
 	private String userName;
 	
 	@NotEmpty
@@ -32,8 +34,9 @@ public class User {
 	@NotEmpty
 	private String lastName;
 	
+	@Pattern(regexp="((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20})", message="The password has a minimum length of 8 characters and contains at least 1 number, 1 uppercase, and 1 lowercase character")
 	@NotEmpty
-	@Size(min=4, max=8)
+	@Size(min=8)
 	private String password;
 	
 	@NotEmpty
