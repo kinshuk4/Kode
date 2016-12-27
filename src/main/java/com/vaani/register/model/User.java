@@ -33,8 +33,8 @@ public class User {
 	
 	@NotEmpty
 	private String lastName;
-	
-	@Pattern(regexp="((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,})", message="The password has a minimum length of 8 characters and contains at least 1 number, 1 uppercase, and 1 lowercase character")
+	//(?=.*[@#$%])
+	@Pattern(regexp="((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,})", message="The password has a minimum length of 8 characters and contains at least 1 number, 1 uppercase, and 1 lowercase character")
 	@NotEmpty
 	@Size(min=8)
 	private String password;
