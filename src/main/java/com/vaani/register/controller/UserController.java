@@ -40,7 +40,7 @@ public class UserController {
       } else {
           userService.save(user);
           model.addAttribute("message", "Saved user details");
-          return "redirect:login.html";
+          return "redirect:login.html?success=1";
       }
   }
 

@@ -67,12 +67,25 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div>
-				<h1>Welcome to User Registration Login</h1>
+				<h1>Welcome to User Login</h1>
 				<p>Login to explore the complete features!</p>
 			</div>
 		</div>
 
 		<div></div>
+	</div>
+	
+		<div class="panel panel-success" id='successPanel' style="display:none;">
+		<div class="panel-heading">
+			<h3 class="panel-title">User Registration success</h3>
+		</div>
+		<div class="panel-body">
+		<div class="alert alert-dismissable alert-success">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>Well done!</strong> You successfully registered the user. 
+              Now login to explore the complete features!
+            </div>
+		</div>
 	</div>
 
 	<div class="col-lg-6 col-lg-offset-3">
@@ -118,6 +131,30 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+	function getParameterByName(name, url) {
+	    if (!url) {
+	      url = window.location.href;
+	    }
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
 
+	function toggleSuccessPanel(){
+		var userRegisterSuccess = getParameterByName('success'); // "lorem"
+		var successPanel = $("#successPanel");
+		if(userRegisterSuccess==1){			
+			successPanel.show();
+		}else{
+			successPanel.hide();
+		}
+	}
+	 
+	window.onload = toggleSuccessPanel;
+	</script>
 </body>
 </html>
