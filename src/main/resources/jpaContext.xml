@@ -51,6 +51,8 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
