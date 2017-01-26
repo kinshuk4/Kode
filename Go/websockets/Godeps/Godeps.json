@@ -1,0 +1,11 @@
+{
+	"ImportPath": "github.com/santiaago/websockets",
+	"GoVersion": "go1.5",
+	"GodepVersion": "v62",
+	"Deps": [
+		{
+			"ImportPath": "golang.org/x/net/websocket",
+			"Rev": "1aafd77e1e7f6849ad16a7bdeb65e3589a10b2bb"
+		}
+	]
+}
