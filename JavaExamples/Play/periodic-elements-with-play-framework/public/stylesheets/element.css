@@ -1,0 +1,90 @@
+@CHARSET "ISO-8859-1";
+
+#searchContainer {
+	width: 440px;
+}
+
+#searchPanel {
+	border-bottom: 1px dotted #000;
+	padding: 5px;
+	text-align: center;
+}
+
+#searchResults {
+	margin-top: 5px;
+	padding: 5px;
+}
+
+.periodicTableBox {
+	width: 90px;
+	height: 90px;
+	background-color: lightyellow;
+	border: 1px solid black;
+	margin: 0px auto;
+	padding: 5px;
+	
+}
+	
+.symbol {
+	font-size: 24pt;
+	font-weight: bold;
+	text-align: center;
+}
+	
+.number {
+	font-size: 14pt;
+	text-align: center;
+}
+	
+.centered {
+	text-align: center;
+}
+
+.diatomicnonmetal {
+	background-color: #e7ff8f;
+}
+
+.alkalimetal {
+	background-color: #ff6665;
+}
+
+.alkalineearthmetal {
+	background-color: #ffdead;
+}
+
+.lanthanide {
+	background-color: #ffbfff;
+}
+
+.actinide {
+	background-color: #ff99cc;
+}
+
+.transitionmetal	{
+	background-color: #ffc0c0;
+}
+
+.othermetal {
+	background-color: #cccccc;
+}
+
+.metalloid {
+	background-color: #cccc99;
+}
+
+.polyatomicnonmetal {
+	background-color: #a1ffc3;
+}
+
+.diatomicnonmetal {
+	background-color: #e7ff8f;
+}
+
+.noblegas {
+	background-color: #c0ffff;
+}
+
+.badquery {
+	background-color: red;
+	color: white;
+}

@@ -1,0 +1,12 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# RESTful service endpoint for retrieving chemical element data.
+GET		/element					controllers.ElementController.element
+# Mustache template for a chemical element
+GET		/template					controllers.ElementController.template
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

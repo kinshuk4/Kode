@@ -1,0 +1,5 @@
+<div class="periodicTableBox {{element.getMetalGroup}}">
+		<div class="centered">{{element.getAtomicNumber}}</div>
+		<div class="symbol">{{element.getSymbol}}</div>
+		<div class="centered">{{element.getName}}</div>
+</div>
