@@ -227,60 +227,57 @@ fabric.properties
 # *.iml
 # modules.xml
 .idea/libraries/*
-.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml
-
-.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml
-
-.idea/libraries/Maven__javax_validation_validation_api_1_0_0_GA.xml
-
-.idea/libraries/Maven__junit_junit_3_8_1.xml
-
-.idea/libraries/Maven__org_aspectj_aspectjrt_1_8_5.xml
-
-.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_1_9_Final.xml
-
-.idea/libraries/Maven__org_springframework_spring_webmvc_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_web_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_tx_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_orm_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_jdbc_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_core_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_context_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_expression_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_beans_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_spring_aop_4_2_2_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_data_spring_data_jpa_1_8_0_RELEASE.xml
-
-.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_10_0_RELEASE.xml
-
-.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_10.xml
-
-.idea/libraries/Maven__org_slf4j_jcl_over_slf4j_1_7_10.xml
+.idea/libraries/*.xml
 
 .idea/*.xml
 
-.idea/libraries/Maven__mysql_mysql_connector_java_5_0_5.xml
-
-.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_1_Final.xml
-
-.idea/libraries/Maven__org_hibernate_hibernate_core_4_1_9_Final.xml
-
-.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml
-
-.idea/libraries/Maven__org_hibernate_hibernate_validator_4_2_0_Final.xml
-
-.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml
-
-.idea/libraries/Maven__org_javassist_javassist_3_17_1_GA.xml
 
 .idea/vcs.xml
+=======
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
