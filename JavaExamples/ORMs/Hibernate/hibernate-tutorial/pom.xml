@@ -51,7 +51,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>4.2.16.Final</version>
+            <version>5.4.24.Final</version>
         </dependency>
 
         <!-- Hibernate uses jboss-logging for logging, for the tutorials we will use the sl4fj-simple backend -->
